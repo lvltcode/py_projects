@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+import sys
+import math
+import random
+
+
+def printMaze():
+    maze = []
+    lineOfMaze = sys.stdin.readline()
+    while lineOfMaze[0] == '#':
+        maze.append(lineOfMaze.strip('\n'))
+        lineOfMaze = sys.stdin.readline()
+    for lines in maze:
+        protocole.write(str(lines) + '\n')
+    protocole.close()
+    return maze
+
+def findMove():
+    move = ['MOVE UP', 'MOVE DOWN', 'MOVE LEFT', 'MOVE RIGHT']
+    sys.stdout.write('MOVE RIGHT\n\n')
+
+virtualMessage = sys.stdin.readline()
+while virtualMessage != '':
+    if 'HELLO' in virtualMessage:
+        sys.stdout.write('I AM A\n\n')
+    if 'YOU ARE A' in virtualMessage:
+        sys.stdout.write('OK\n\n')
+    if 'MAZE' in virtualMessage:
+        protocole = open('protocol','w')
+        # with open('protocol', 'w') as f:
+            # f.write('')
+        while True:
+            virtualMessage = sys.stdin.readline()
+            protocole = open('protocol','a')
+            protocole.write(virtualMessage)
+            maze = printMaze()
+            sys.stderr.write(str(maze)+'\n\n')
+            # sys.stdout.write('MOVE RIGHT\n\n')
+            findMove()
+    virtualMessage = sys.stdin.readline()
